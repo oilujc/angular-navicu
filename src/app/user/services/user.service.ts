@@ -11,11 +11,9 @@ export class UserService {
   env = environment
   constructor(private http: HttpClient) { }
 
-  users: any = []
-
   getDataUser() {
-    return this.users
-    // return this.http.get(`${this.env.baseUrl}/users/`)
+    // return this.users
+    return this.http.get(`${this.env.apiUrl}users/`)
   }
 
 }

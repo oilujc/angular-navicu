@@ -1,3 +1,25 @@
-<p>
-  list works!
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12 text-center">
+			<h1 class="mt-5">Lista de Roles</h1>
+		</div>
+		<div class="col-lg-12">
+			<table class="table">
+				<thead class="thead-dark">
+					<tr class="d-flex">
+						<th class="col-md-5" scope="col">#</th>
+						<th class="col-md-5" scope="col">Nombre</th>
+						<th class="col-md-2" scope="col">Acción</th>
+					</tr>
+				</thead>
+				<tbody >
+					<tr class="d-flex" *ngFor="let item of roles">
+						<th class="col-md-5" scope="row">{{item?.id}}</th>
+						<td class="col-md-5">{{item?.name}}</td>
+						<td class="col-md-2"><a class="btn btn-primary" href="">Editar</a> <a class="btn btn-primary" href="">Eliminar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

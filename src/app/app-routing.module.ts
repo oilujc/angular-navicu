@@ -5,13 +5,17 @@ const routes: Routes = [
   	{
     	path: 'rol', redirectTo: 'login', pathMatch: 'full'
   	},
-	{
-	    path: 'rol',
-	    loadChildren: () => import('./rol/rol.module').then(m => m.RolModule)
+	  // {
+	  //   path: 'rol',
+	  //   loadChildren: () => import('./rol/rol.module').then(m => m.RolModule)
+  	// },
+  	{
+    	path: '**',  redirectTo: 'rol', pathMatch: 'full'
   	},
-  	{ 
-    	path: '**',  redirectTo: 'rol', pathMatch: 'full' 
-  	}
+	  {
+	    path: 'user',
+	    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+  	},
 ];
 
 @NgModule({

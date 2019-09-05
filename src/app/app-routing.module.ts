@@ -5,12 +5,16 @@ const routes: Routes = [
   	{
     	path: '', redirectTo: 'roles', pathMatch: 'full'
   	},
-	{
-	    path: 'roles',
-	    loadChildren: () => import('./rol/rol.module').then(m => m.RolModule)
+	  // {
+	  //   path: 'rol',
+	  //   loadChildren: () => import('./rol/rol.module').then(m => m.RolModule)
+  	// },
+  	{
+    	path: '**',  redirectTo: 'rol', pathMatch: 'full'
   	},
-  	{ 
-    	path: '**',  redirectTo: 'roles', pathMatch: 'full' 
+	  {
+	    path: 'user',
+	    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   	}
 ];
 

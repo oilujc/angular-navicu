@@ -9,15 +9,11 @@ import { of } from 'rxjs/internal/observable/of';
 })
 export class RolService {
 
-  env = environment
+  env = environment;
 
   constructor(private http: HttpClient) { }
 
   getRoles() {
-    return this.http.get(`${this.env.apiUrl}roles/`);
-  }
-
-  getRolById(id: number) {
     return this.http.get(`${this.env.apiUrl}roles/`);
   }
 

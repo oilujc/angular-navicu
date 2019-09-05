@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { RolRoutingModule } from './rol-routing.module';
 import { ListComponent } from './components/list/list.component';
+import { FormComponent } from './components/form/form.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ListComponent],
+  declarations: [ListComponent, FormComponent],
   imports: [
     CommonModule,
-    RolRoutingModule
+    RolRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class RolModule { }

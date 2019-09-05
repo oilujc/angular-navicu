@@ -18,8 +18,6 @@ export class ListComponent implements OnInit {
 
   	this.rolService.getRoles().subscribe((response:any) => {
 
-  		console.log(response);
-
   		this.roles = response.data;
 
   	});

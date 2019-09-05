@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   	{
-    	path: 'rol', redirectTo: 'login', pathMatch: 'full'
+    	path: '', redirectTo: 'roles', pathMatch: 'full'
   	},
 	{
-	    path: 'rol',
+	    path: 'roles',
 	    loadChildren: () => import('./rol/rol.module').then(m => m.RolModule)
   	},
   	{ 
-    	path: '**',  redirectTo: 'rol', pathMatch: 'full' 
+    	path: '**',  redirectTo: 'roles', pathMatch: 'full' 
   	}
 ];
 

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { UserService } from "../../services/user.service";
+import { RolService } from "../../../rol/services/rol.service";
 
 @Component({
   selector: 'app-form',
@@ -13,11 +14,13 @@ export class FormComponent implements OnInit {
 
   createOrUpdateUserForm: FormGroup
   idUrl: any
-  roles = [1, 2, 3]
+  user: any
+  roles = []
 
   constructor(
     private fb: FormBuilder,
-    private http: UserService,
+    private userService: UserService,
+    private rolService: RolService,
     private urlParam: ActivatedRoute
   ) {
     this.urlParam.params.subscribe( (params: any) => {
@@ -35,15 +38,26 @@ export class FormComponent implements OnInit {
       userType: ['']
     })
 
-    this.getData()
+    this.getRolData()
+    this.getUserData()
   }
 
-  getData() {
-    this.http.getDataUser().subscribe(( res:any ) => {
-      console.log(res.data[0]);
+  getUserData() {
+    this.userService.getUserData().subscribe(( res:any ) => {
+      this.user = res.data[0]
+      console.log(this.user);
 
       this.createOrUpdateUserForm.controls.name.setValue(res.data[0].name)
       this.createOrUpdateUserForm.controls.age.setValue(res.data[0].age)
+      this.createOrUpdateUserForm.controls.userType.patchValue(res.data[0].rol_id)
+    })
+  }
+
+  getRolData() {
+    this.rolService.getRoles().subscribe(( res:any ) => {
+      console.log(res.data);
+
+      this.roles = res.data
     })
   }
 

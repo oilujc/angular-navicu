@@ -33,8 +33,10 @@
                 <div class="form-group col-5">
                   <select formControlName="userType"
                       class="form-control custom-select">
-                      <option value="1"> Porcentaje %</option>
-                      <option value="2"> Monto fijo </option>
+                      <option *ngFor="let rol of roles"
+                        [value]="rol.id">
+                        {{ rol.name }}
+                      </option>
                   </select>
                 </div>
             </div>

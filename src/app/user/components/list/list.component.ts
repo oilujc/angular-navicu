@@ -12,15 +12,21 @@ export class ListComponent implements OnInit {
   user: User
   users = []
 
-  constructor(private userService: UserService) {
-    console.log(this.userService);
+  constructor(private userService: UserService) { }
 
+  deleteUser(event) {
+    console.log('prueba');
+  }
+
+  updateUser(event) {
+    console.log('prueba');
   }
 
   ngOnInit() {
-    // this.userService.getDataUser().subscribe(res => {
-    //   console.log(res);
-    // })
+    this.userService.getUserData().subscribe((res:any) => {
+      this.users = res.data;
+      console.log(this.users);
+    })
   }
 
 }

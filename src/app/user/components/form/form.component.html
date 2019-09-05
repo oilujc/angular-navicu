@@ -1,3 +1,46 @@
-<p>
-  form works!
-</p>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Agregar o editar usuario?</h1>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <form [formGroup]="createOrUpdateUserForm" class="vicander-form px-5 mt-5">
+            <div class="form-row mt-2  justify-content-center">
+                <div class="form-group col-5">
+                    <label>
+                        <span>Nombre</span>
+                    </label>
+                </div>
+                <div class="form-group col-5">
+                    <input type="text" formControlName="name" id="gain" class="form-control bg-input" id="comision">
+                </div>
+                <div class="form-group col-5">
+                    <label>
+                        <span>Edad</span>
+                    </label>
+                </div>
+                <div class="form-group col-5">
+                    <input type="text" formControlName="age" id="gain" class="form-control bg-input" id="comision">
+                </div>
+                <div class="form-group col-5">
+                    <label>
+                        <span>Tipo de usuario</span>
+                    </label>
+                </div>
+                <div class="form-group col-5">
+                  <select formControlName="userType"
+                      class="form-control custom-select">
+                      <option *ngFor="let rol of roles"
+                        [value]="rol.id">
+                        {{ rol.name }}
+                      </option>
+                  </select>
+                </div>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
